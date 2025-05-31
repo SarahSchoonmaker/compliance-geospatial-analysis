@@ -1,11 +1,9 @@
-# .gitignore
 # Python virtual environments
-gdpr-env/
+.venv/
 venv/
 env/
 ENV/
-.venv/
-.env/
+gdpr-env/
 
 # Python cache and bytecode
 __pycache__/
@@ -27,74 +25,9 @@ parts/
 sdist/
 var/
 wheels/
-share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# Environment variables
-.env
-.env.local
-.env.development
-.env.test
-.env.production
-
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# MacOS
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-
-# Geospatial data files (large files)
-*.shp
-*.shx
-*.dbf
-*.prj
-*.cpg
-*.qpj
-*.geojson
-*.gpkg
-*.kml
-*.kmz
 
 # Generated output files
 gdpr_compliance_dashboard.html
@@ -102,13 +35,11 @@ maritime_trade_dashboard.html
 *.html
 *.png
 *.jpg
-*.jpeg
 *.pdf
 
-# Model files (can be large)
+# Model files
 *.pkl
 *.joblib
-*.h5
 *.model
 
 # Data files
@@ -117,221 +48,28 @@ maritime_trade_dashboard.html
 *.json
 data/
 datasets/
-raw_data/
 
 # Logs
-logs/
 *.log
 
-# Temporary files
-temp/
-tmp/
-*.tmp
+# IDE files
+.vscode/
+.idea/
 
-# OS generated files
-.DS_Store?
-Icon?
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
 
-# Folium/mapping cache
-.folium_cache/
+# Environment variables
+.env
+.env.local
 
-# Plotly cache
-.plotly_cache/
-
----
-
-# requirements.txt
-# Core data science packages
-pandas>=2.0.0
-numpy>=1.24.0
-
-# Geospatial packages
-geopandas>=0.13.0
-shapely>=2.0.0
-folium>=0.14.0
-pyproj>=3.4.0
-Fiona>=1.8.22
-
-# Machine learning
-scikit-learn>=1.3.0
-
-# Visualization
-plotly>=5.15.0
-matplotlib>=3.6.0
-seaborn>=0.12.0
-
-# Performance optimization
-numba>=0.57.0
-psutil>=5.9.0
-
-# Web development (if adding APIs later)
-flask>=2.3.0
-requests>=2.31.0
-
-# Data processing
-openpyxl>=3.1.0
-xlrd>=2.0.1
-
-# Spatial databases (optional)
-psycopg2-binary>=2.9.0
-pymongo>=4.4.0
-
-# Development tools
-jupyter>=1.0.0
-ipython>=8.0.0
-
-# Testing (optional)
-pytest>=7.4.0
-pytest-cov>=4.1.0
-
----
-
-# requirements-dev.txt (Development dependencies)
-# Include all production requirements
--r requirements.txt
-
-# Development and testing
-black>=23.0.0
-flake8>=6.0.0
-mypy>=1.5.0
-isort>=5.12.0
-
-# Documentation
-sphinx>=7.1.0
-sphinx-rtd-theme>=1.3.0
-
-# Jupyter extensions
-jupyterlab>=4.0.0
-notebook>=7.0.0
-
-# Performance profiling
-memory-profiler>=0.60.0
-line-profiler>=4.1.0
-
----
-
-# setup.py (Optional - for making package installable)
-from setuptools import setup, find_packages
-
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
-
-with open("requirements.txt", "r", encoding="utf-8") as fh:
-    requirements = [line.strip() for line in fh if line.strip() and not line.startswith("#")]
-
-setup(
-    name="gdpr-compliance-predictor",
-    version="1.0.0",
-    author="Sarah Schoonmaker",
-    author_email="srschoonmaker@gmail.com",
-    description="AI-powered GDPR compliance monitoring using geospatial analysis",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="https://github.com/SarahSchoonmaker/gdpr-compliance-monitor",
-    packages=find_packages(),
-    classifiers=[
-        "Development Status :: 4 - Beta",
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-        "Topic :: Scientific/Engineering :: GIS",
-        "Topic :: Security",
-    ],
-    python_requires=">=3.8",
-    install_requires=requirements,
-    extras_require={
-        "dev": [
-            "black>=23.0.0",
-            "flake8>=6.0.0",
-            "pytest>=7.4.0",
-            "jupyter>=1.0.0",
-        ],
-        "performance": [
-            "numba>=0.57.0",
-            "psutil>=5.9.0",
-        ],
-    },
-    entry_points={
-        "console_scripts": [
-            "gdpr-analyze=gdpr_compliance_predictor:main",
-        ],
-    },
-)
-
----
-
-# README.md
-# GDPR Compliance Geographic Monitor
-
-AI-powered geospatial analysis for GDPR data access compliance monitoring.
-
-## Features
-
-- 🗺️ **Geospatial Analysis**: Location-based compliance monitoring
-- 🤖 **Machine Learning**: Predictive violation detection with 87%+ accuracy
-- 📊 **Interactive Dashboards**: Real-time compliance visualization
-- ⚡ **High Performance**: Optimized for 100K+ records using Numba and vectorization
-- 🌍 **Multi-Region Support**: EU, US, APAC data center compliance
-
-## Quick Start
-
-### Installation
-
-```bash
-# Clone repository
-git clone https://github.com/SarahSchoonmaker/gdpr-compliance-monitor.git
-cd gdpr-compliance-monitor
-
-# Create virtual environment
-python -m venv gdpr-env
-source gdpr-env/Scripts/activate  # Windows
-# source gdpr-env/bin/activate    # macOS/Linux
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### Usage
-
-```bash
-# Run basic analysis
-python gdpr_compliance_predictor.py
-
-# Run optimized version (recommended)
-python optimized_gdpr_predictor.py
-
-# View results
-open gdpr_compliance_dashboard.html
-```
-
-## Technical Stack
-
-- **Python**: GeoPandas, Folium, Scikit-learn, Numba
-- **Geospatial**: PostGIS, Shapely, spatial analysis
-- **ML**: Random Forest, predictive modeling
-- **Visualization**: Interactive maps, heatmaps, clustering
-- **Performance**: JIT compilation, vectorization, parallel processing
-
-## Project Structure
-
-```
-gdpr-compliance-monitor/
-├── gdpr_compliance_predictor.py     # Main analysis script
-├── optimized_gdpr_predictor.py      # Performance-optimized version
-├── requirements.txt                 # Python dependencies
-├── .gitignore                      # Git ignore rules
-└── README.md                       # This file
-```
-
-## Performance
-
-- **Handles 100K+ records** efficiently
-- **10-50x speedup** with Numba optimization
-- **Memory efficient** with vectorized operations
-- **Scalable** to enterprise datasets
-
+# Generated output files
+compliance-dashboard.html
+gdpr_compliance_dashboard.html
+maritime_trade_dashboard.html
+*.html
+*.png
+*.jpg
+*.pdf

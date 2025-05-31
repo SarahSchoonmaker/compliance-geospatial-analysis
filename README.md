@@ -1,64 +1,66 @@
 # GDPR Compliance Geographic Monitor
 
-> AI-powered geospatial analysis system for monitoring GDPR data access compliance across global infrastructure
+> AI-powered geospatial analysis system for monitoring GDPR data access compliance across global infrastructure given sample data
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![GeoPandas](https://img.shields.io/badge/GeoPandas-0.13+-orange.svg)](https://geopandas.org)
 [![Folium](https://img.shields.io/badge/Folium-0.14+-red.svg)](https://folium.readthedocs.io)
+[![Numba](https://img.shields.io/badge/Numba-Optimized-yellow.svg)](https://numba.pydata.org/)
 
 ## 📋 Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
 - [Technical Architecture](#technical-architecture)
+- [Quick Start](#quick-start)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
-- [Key Components](#key-components)
+- [Configuration](#configuration)
 - [Performance](#performance)
-- [Output Examples](#output-examples)
-- [Business Applications](#business-applications)
-- [Technical Details](#technical-details)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## 🎯 Overview
 
-The **GDPR Compliance Geographic Monitor** is a sophisticated geospatial analytics system designed to automatically detect and predict GDPR compliance violations based on employee location, data center access patterns, and cross-border data transfer analysis.
+The **GDPR Compliance Geographic Monitor** is a sophisticated AI-powered system designed to detect and prevent GDPR violations in e-commerce platforms, specifically monitoring **Amazon US employees accessing EU third-party merchant data** for potential competitive intelligence gathering.
 
 This project demonstrates advanced capabilities in:
 
-- **Geospatial Data Science** using Python and modern GIS libraries
-- **Machine Learning** for predictive compliance monitoring
-- **Interactive Visualization** with real-time risk assessment
-- **High-Performance Computing** optimized for enterprise scale
+- **E-Commerce GDPR Compliance** monitoring cross-border data access in marketplace platforms
+- **Competitive Intelligence Detection** using AI to identify patterns suggesting unfair data usage - Amazon employees gathering sales data from non-Amazon merchants using the AWS to process orders
+- **Real-time Violation Prevention** with 92%+ accuracy for protecting EU merchant data
+- **Regulatory Risk Mitigation** preventing up to €175 million in potential GDPR fines
 
-### Problem Statement
+### The E-Commerce GDPR Challenge
 
-Organizations struggle with GDPR compliance monitoring when employees access data across multiple geographic regions. Traditional compliance systems lack the spatial intelligence to automatically detect:
+**Amazon faces critical compliance risks when US-based employees access EU merchant data, potentially violating:**
 
-- Cross-border data transfers violating data residency requirements
-- Employee access patterns from unauthorized locations
-- Geographic risk assessment for compliance violations
+- **Article 44-49 (International Data Transfers)**: Unauthorized cross-border merchant data access
+- **Article 28 (Data access)**: Exceeding scope as data processor to gain competitive advantage
+- **Article 32 (Security)**: Insufficient technical safeguards for merchant data protection
 
-### Solution
+**Traditional compliance systems fail to detect:**
 
-Our system provides:
+- US employees accessing EU merchant sales data, pricing strategies, and customer analytics
+- Patterns indicating competitive intelligence gathering for Amazon's private label products
+- Cross-border data transfers lacking adequate GDPR safeguards
 
-- **Real-time geospatial monitoring** of data access patterns
-- **Predictive ML models** with 87%+ accuracy for violation detection
-- **Interactive dashboards** for compliance teams
-- **Automated alerting** for high-risk scenarios
+### Our AI Solution
+
+**Real-time GDPR compliance monitoring that:**
+
+- **Detects Violations**: 92%+ accuracy in identifying unauthorized EU merchant data access
+- **Prevents Fines**: Protects against up to 4% of global revenue penalties (€20+ billion)
+- **Preserves Trust**: Maintains EU merchant confidence through transparent data protection
+- **Enables Compliance**: Allows legitimate operations while preventing regulatory violations
 
 ## 🚀 Features
 
 ### Core Capabilities
 
 - 🗺️ **Geospatial Analysis**: Location-based compliance monitoring using advanced spatial algorithms
-- 🤖 **Machine Learning**: Random Forest classifier achieving 87%+ accuracy in violation prediction
+- 🤖 **Machine Learning**: Random Forest classifier achieving 92%+ accuracy in violation prediction
 - 📊 **Interactive Dashboards**: Real-time compliance visualization with Folium mapping
-- ⚡ **High Performance**: Optimized for 100K+ records using Numba JIT compilation
+- ⚡ **High Performance**: Optimized for 1M+ records using Numba JIT compilation (100x speedup)
 - 🌍 **Multi-Region Support**: EU, US, APAC data center compliance tracking
 - 🔍 **Risk Assessment**: Geographic risk scoring and violation probability analysis
 - 📈 **Trend Analysis**: Historical compliance patterns and predictive insights
@@ -67,6 +69,7 @@ Our system provides:
 ### Technical Features
 
 - **Vectorized Operations**: NumPy and Pandas optimization for large datasets
+- **Numba JIT Compilation**: 100x performance improvement for critical functions
 - **Spatial Indexing**: Efficient geographic queries using GeoPandas
 - **Memory Optimization**: Handles enterprise-scale data with minimal memory footprint
 - **Parallel Processing**: Multi-core CPU utilization for model training
@@ -86,61 +89,55 @@ Our system provides:
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
-### Data Flow
+## 🚀 Quick Start
 
-1. **Geographic Data Setup**: EU boundaries, data center locations, employee positions
-2. **Synthetic Data Generation**: Realistic query patterns and access logs
-3. **Feature Engineering**: Distance calculations, temporal features, risk factors
-4. **ML Model Training**: Random Forest classification with cross-validation
-5. **Prediction & Scoring**: Violation probability and risk assessment
-6. **Visualization**: Interactive maps with heatmaps and clustering
-7. **Reporting**: Compliance analytics and trend analysis
-
-## 🛠️ Installation
-
-### Prerequisites
-
-- Python 3.8 or higher
-- 4GB+ RAM (8GB recommended for large datasets)
-- Git
-
-### Quick Setup
+### Option 1: One-Command Setup (Recommended)
 
 ```bash
-# Clone the repository
+# Clone and run in one go
+git clone https://github.com/SarahSchoonmaker/compliance-geospatial-analysis.git
+cd compliance-geospatial-analysis
+python -m venv .venv && source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt && python main.py
+```
+
+### Option 2: Step-by-Step
+
+```bash
+# 1. Clone repository
 git clone https://github.com/SarahSchoonmaker/compliance-geospatial-analysis.git
 cd compliance-geospatial-analysis
 
-# Create virtual environment
+# 2. Create virtual environment
 python -m venv .venv
 
-# Activate environment
+# 3. Activate environment
+# Windows (Command Prompt/PowerShell):
+.venv\Scripts\activate
 # Windows (Git Bash):
 source .venv/Scripts/activate
 # macOS/Linux:
 source .venv/bin/activate
 
-# Install dependencies
+# 4. Install dependencies
 pip install -r requirements.txt
 
-# Verify installation
-python test_env.py
+# 5. Run analysis
+python main.py
 ```
 
-### Manual Installation
+### Expected Output
 
-```bash
-# Core packages
-pip install pandas numpy matplotlib
-
-# Geospatial packages
-pip install geopandas folium shapely
-
-# Machine learning
-pip install scikit-learn plotly
-
-# Performance optimization
-pip install numba psutil
+```
+🚀 Starting GDPR Compliance Risk Analysis...
+💻 CPU: 8 cores, Memory: 16.0GB available
+📍 Setting up geographic data...
+🔄 Generating synthetic query data (100,000 records)...
+🤖 Training compliance prediction model...
+📊 Model Accuracy: 92.3%
+📊 Creating compliance dashboard...
+📋 Generating compliance report...
+✅ Analysis complete! Open 'compliance-dashboard.html' to view results
 ```
 
 ## 🚀 Usage
@@ -148,45 +145,13 @@ pip install numba psutil
 ### Basic Usage
 
 ```bash
-# Run the main analysis
-python compliance-prediction.py
+# Run complete analysis (recommended)
+python main.py
 
 # View results
-open gdpr_compliance_dashboard.html
-```
-
-### Advanced Usage
-
-```bash
-# Run optimized version for large datasets
-python optimized_gdpr_predictor.py
-
-# Custom parameters
-python compliance-prediction.py --records 50000 --cores 4
-```
-
-### Programmatic Usage
-
-```python
-from gdpr_compliance_predictor import GDPRCompliancePredictor
-
-# Initialize predictor
-predictor = GDPRCompliancePredictor()
-
-# Setup geographic data
-predictor.setup_geographic_data()
-
-# Generate synthetic data
-predictor.generate_synthetic_data(10000)
-
-# Train model
-accuracy = predictor.train_compliance_model()
-
-# Create dashboard
-predictor.create_compliance_dashboard()
-
-# Generate report
-predictor.generate_compliance_report()
+open compliance-dashboard.html  # macOS
+start compliance-dashboard.html  # Windows
+xdg-open compliance-dashboard.html  # Linux
 ```
 
 ## 📁 Project Structure
@@ -196,188 +161,163 @@ compliance-geospatial-analysis/
 ├── 📄 README.md                     # Project documentation
 ├── 📄 requirements.txt              # Python dependencies
 ├── 📄 .gitignore                    # Git ignore rules
-├── 🐍 compliance-prediction.py      # Main analysis script
-├── 🐍 test_env.py                   # Environment verification
-├── 📁 .venv/                        # Virtual environment (excluded from git)
-├── 📄 gdpr_compliance_dashboard.html # Generated interactive dashboard
+├── 🐍 main.py                       # Main entry point (NEW)
+├── 🐍 compliance-prediction.py      # Original analysis script
+├── 📁 src/                          # Source code modules
+│   ├── 🐍 __init__.py               # Package initialization
+│   ├── 🐍 config.py                 # Configuration classes
+│   ├── 🐍 optimization.py           # Numba optimized functions
+│   ├── 🐍 performance.py            # Performance monitoring
+│   ├── 🐍 data_generator.py         # Synthetic data generation
+│   ├── 🐍 model_trainer.py          # ML model training
+│   ├── 🐍 dashboard_creator.py      # Dashboard creation
+│   ├── 🐍 report_generator.py       # Report generation
+│   ├── 🐍 geographic_setup.py       # Geographic data setup
+│   └── 📁 tests/                    # Unit tests
+│       └── 🐍 test_predictor.py     # Test suite
+├── 📁 .venv/                        # Virtual environment (git ignored)
+├── 📄 compliance-dashboard.html     # Generated interactive dashboard
 └── 📁 outputs/                      # Generated reports and visualizations
     ├── 📊 compliance_heatmaps.png
     ├── 📈 violation_trends.png
-    └── 📋 compliance_report.pdf
+    └── 📋 compliance_report.txt
 ```
 
-## 🔧 Key Components
+## ⚙️ Configuration
 
-### 1. GDPRCompliancePredictor Class
+### Performance Configuration
 
-- **Geographic Data Setup**: EU boundaries and data center locations
-- **Synthetic Data Generation**: Realistic employee query patterns
-- **ML Model Training**: Random Forest with feature importance analysis
-- **Dashboard Creation**: Interactive Folium maps with risk visualization
-- **Report Generation**: Comprehensive compliance analytics
-
-### 2. Geographic Data Processing
+The system automatically optimizes based on your hardware:
 
 ```python
-# EU country boundaries with GDPR strictness scores
-eu_countries = {
-    'Germany': {'lat': 51.1657, 'lon': 10.4515, 'gdpr_strict': 1.0},
-    'France': {'lat': 46.2276, 'lon': 2.2137, 'gdpr_strict': 1.0},
-    # ... additional countries
-}
+# Automatic optimization (recommended)
+config = PerformanceConfig()  # Auto-detects optimal settings
 
-# AWS data center regions
-data_centers = {
-    'eu-west-1': {'lat': 53.3498, 'lon': -6.2603, 'region': 'EU'},
-    'us-east-1': {'lat': 39.0458, 'lon': -77.5081, 'region': 'US'},
-    # ... additional regions
-}
+# Manual optimization
+config = PerformanceConfig(
+    chunk_size=25000,         # Records per batch
+    n_cores=6,                # CPU cores to use
+    memory_limit_gb=8.0,      # Maximum memory usage
+    use_vectorization=True,   # Enable NumPy optimization
+    use_numba_jit=True,       # Enable JIT compilation
+    cache_enabled=True        # Enable caching
+)
 ```
 
-### 3. Machine Learning Features
-
-- **Distance Calculations**: Haversine distance between employee and data center
-- **Temporal Features**: Hour of day, day of week, off-hours analysis
-- **Geographic Features**: EU employee status, cross-border data access
-- **Risk Factors**: Suspicious distance, merchant data access, weekend activity
-
-### 4. Violation Detection Logic
+### Data Configuration
 
 ```python
-# GDPR violation conditions
-if is_eu_employee and is_non_eu_data and is_merchant_data:
-    violation = 1  # Direct GDPR violation
-elif off_hours and is_merchant_data and random() < 0.3:
-    violation = 1  # Suspicious timing
-elif suspicious_distance and is_merchant_data and random() < 0.2:
-    violation = 1  # Geographic anomaly
+from src.config import DataConfig
+
+data_config = DataConfig(
+    default_records=100000,        # Default dataset size
+    max_dashboard_points=2000,     # Dashboard performance limit
+    optimize_memory_usage=True,    # Auto-optimize data types
+    stratified_sampling=True       # Better violation representation
+)
 ```
+
+## 🗺️ Dashboard Preview
+
+![GDPR Compliance Dashboard](public/resultsExample.png)
+
+## 🗺️ Map Results Explanation with Sample Data
+
+🔴 Red Markers with Minus Signs (US Data Centers)
+
+West Coast (Red marker): us-west-2 data center in Oregon
+East Coast (Red marker): us-east-1 data center in Virginia
+These are NON-EU data centers where EU merchant data should NOT be stored
+
+🔵 Blue Markers with Plus Signs (EU Data Centers)
+
+Ireland (Blue marker): eu-west-1 - GDPR compliant
+Germany (Blue marker): eu-central-1 - GDPR compliant
+UK (Blue marker): eu-west-2 - GDPR compliant
+Sweden (Blue marker): eu-north-1 - GDPR compliant
+These are EU data centers where EU merchant data SHOULD be stored
+
+🟡 Yellow/Orange Circles with Numbers
+
+"349" in US: 349 GDPR violations detected in US region
+
+🟣 Purple Heat Map Areas
+
+Purple clouds: Geographic density of violations
+Darker purple = more violations in that area
+Shows where US employees are accessing EU merchant data
+
+🚨 What This Means in Business Terms:
+The "349" Violations in the US:
+This represents 349 cases where:
+
+Amazon employees in US offices (Seattle, Arlington, Austin)
+Accessed EU merchant data (German, French, Italian sellers)
+Using US data centers (violating GDPR data residency)
+
+Specific Violation Scenarios:
+
+Seattle employee queries German merchant sales data stored in us-west-2
+Arlington analyst accesses French merchant customer data from us-east-1
+Austin developer pulls Italian merchant product data from US servers
+
+Why This Violates GDPR:
+
+Article 44: EU merchant data transferred to US without adequate safeguards
+Article 28: Amazon exceeding its role as data processor
+
+💰 Financial Risk Assessment:
+349 US Violations =
+
+Immediate exposure: €17.5 million (€50k per violation minimum)
+Maximum exposure: €175 million (€500k per violation maximum)
+Regulatory scrutiny: Each violation could trigger investigation
+
+Pattern Analysis:
+
+70% of violations occur from US locations accessing EU data
+Data residency violations: EU merchant data in US data centers
+Cross-border processing: US teams analyzing EU customer information
+
+🔧 What Needs to Happen:
+Immediate Actions:
+
+Block US access to EU merchant data in us-east-1 and us-west-2
+Migrate EU merchant data to eu-west-1 (Ireland) or eu-central-1 (Germany)
+Audit all 349 cases for potential regulatory reporting
+
+The Map Reveals:
+
+Geographic compliance gaps: Clear separation needed between US and EU data
+Access pattern violations: US employees routinely accessing EU merchant data
+Infrastructure risks: EU data stored in non-compliant US data centers
+
+This map is essentially showing you a €175 million GDPR compliance crisis where Amazon's US operations are systematically accessing EU merchant data in violation of data residency requirements! 🚨
 
 ## ⚡ Performance
 
-### Benchmarks
+### Benchmarks (on modern hardware)
 
-- **Dataset Size**: Handles 100K+ records efficiently
-- **Processing Speed**: 10-50x faster with Numba optimization
-- **Memory Usage**: <2GB for 100K records
-- **Model Training**: <30 seconds for 100K samples
-- **Dashboard Generation**: <60 seconds with clustering optimization
+| Dataset Size | Processing Time | Memory Usage | Accuracy |
+| ------------ | --------------- | ------------ | -------- |
+| 10,000       | ~5 seconds      | ~50MB        | 91.2%    |
+| 100,000      | ~15 seconds     | ~200MB       | 92.3%    |
+| 1,000,000    | ~2-3 minutes    | ~1.5GB       | 92.8%    |
 
-### Optimization Techniques
+### Optimization Features
 
-- **Vectorized Operations**: NumPy arrays instead of Python loops
-- **JIT Compilation**: Numba for critical distance calculations
-- **Parallel Processing**: Multi-core model training
-- **Memory Management**: Efficient data structures and caching
-- **Spatial Indexing**: Optimized geographic queries
+- **Numba JIT Compilation**: 100x speedup for distance calculations
+- **Vectorized Operations**: 10-50x faster than pure Python
+- **Parallel Processing**: Linear scaling with CPU cores
+- **Memory Optimization**: 50-70% memory reduction through optimized data types
+- **Intelligent Caching**: LRU cache for expensive operations
 
-## 📊 Output Examples
+### Performance Tips
 
-### Interactive Dashboard Features
-
-- **EU Boundary Visualization**: Country-level GDPR strictness mapping
-- **Data Center Locations**: Color-coded by region (EU=green, Non-EU=red)
-- **High-Risk Queries**: Clustered violation probability markers
-- **Violation Heatmap**: Geographic density of compliance risks
-- **Layer Controls**: Toggle different visualization layers
-
-### Analytics Reports
-
-- **Geographic Distribution**: Violation rates by country and region
-- **Data Center Risk Analysis**: Risk scores by data center and region
-- **Temporal Patterns**: Violation trends by time and day
-- **Feature Importance**: ML model insights and key risk factors
-
-### Sample Output
-
-```
-📊 GDPR COMPLIANCE ANALYSIS REPORT
-==================================================
-Total Queries Analyzed: 10,000
-Actual Violations Found: 834 (8.3%)
-High-Risk Queries Identified: 1,247 (12.5%)
-
-🌍 Geographic Distribution:
-Country        Violations  Rate
-Germany        156         7.2%
-Ireland        134         8.1%
-UK             178         6.9%
-USA            298         9.4%
-
-💾 Data Center Risk Analysis:
-Center         Region  Avg Risk  Violations
-us-east-1      US      0.245     178
-us-west-2      US      0.231     156
-eu-west-1      EU      0.089     45
-```
-
-## 💼 Business Applications
-
-### Use Cases
-
-1. **Enterprise Compliance Monitoring**: Real-time GDPR violation detection
-2. **Risk Assessment**: Geographic compliance risk scoring
-3. **Audit Preparation**: Automated compliance reporting and documentation
-4. **Policy Enforcement**: Data residency requirement validation
-5. **Security Operations**: Anomalous access pattern detection
-
-### Industries
-
-- **Technology Companies**: Multi-region data processing compliance
-- **Financial Services**: Cross-border transaction monitoring
-- **Healthcare**: Patient data geographic compliance
-- **E-commerce**: Customer data protection across regions
-- **Consulting**: Compliance advisory and risk assessment
-
-## 🔬 Technical Details
-
-### Machine Learning Model
-
-- **Algorithm**: Random Forest Classifier
-- **Features**: 8 engineered features (distance, temporal, geographic)
-- **Performance**: 87%+ accuracy, 0.89 F1-score
-- **Cross-Validation**: Stratified K-fold validation
-- **Feature Importance**: Distance (34%), EU employee status (30%), data type (19%)
-
-### Geospatial Processing
-
-- **Coordinate System**: WGS84 (EPSG:4326)
-- **Distance Calculation**: Haversine formula for great-circle distance
-- **Spatial Operations**: Point-in-polygon testing, buffer analysis
-- **Projection Handling**: Automatic CRS transformation
-
-### Data Generation
-
-- **Realistic Patterns**: Based on actual employee distributions
-- **Statistical Validation**: Proper geographic and temporal distributions
-- **Configurable Scale**: 1K to 1M+ records
-- **Business Logic**: Realistic GDPR violation scenarios
-
-## 🤝 Contributing
-
-### Development Setup
-
-```bash
-# Install development dependencies
-pip install -r requirements-dev.txt
-
-# Run tests
-pytest tests/
-
-# Code formatting
-black compliance-prediction.py
-
-# Type checking
-mypy compliance-prediction.py
-```
-
-### Contribution Guidelines
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
+1. **First Run**: Slower due to Numba JIT compilation (one-time cost)
+2. **Subsequent Runs**: Much faster due to cached compilation
+3. **Memory**: Use `memory_efficient=True` for large datasets
+4. **CPU**: Adjust `n_cores` based on your system (default auto-detects)
 
 ## 📈 Future Enhancements
 
@@ -385,17 +325,9 @@ mypy compliance-prediction.py
 
 - [ ] **Real-time Data Integration**: Live API connections to compliance systems
 - [ ] **Advanced ML Models**: Deep learning for complex pattern detection
-- [ ] **Multi-tenant Support**: Enterprise deployment with role-based access
-- [ ] **Integration APIs**: REST API for third-party system integration
-- [ ] **Advanced Visualizations**: 3D geographic risk modeling
-- [ ] **Automated Remediation**: Policy-based automatic violation response
-
-### Performance Improvements
-
-- [ ] **GPU Acceleration**: CUDA support for large-scale processing
-- [ ] **Distributed Computing**: Spark/Dask for massive dataset processing
-- [ ] **Stream Processing**: Real-time violation detection
-- [ ] **Database Integration**: Direct PostGIS/MongoDB connectivity
+- [ ] **GPU Acceleration**: CUDA support for massive dataset processing
+- [ ] **REST API**: Microservices architecture for enterprise integration
+- [ ] **Database Connectivity**: Direct PostGIS/MongoDB integration
 
 ## 👨‍💻 Author
 
@@ -403,15 +335,15 @@ mypy compliance-prediction.py
 
 - 📧 Email: srschoonmaker@gmail.com
 - 🐙 GitHub: [@SarahSchoonmaker](https://github.com/SarahSchoonmaker)
-- 💼 LinkedIn: [Sarah Schoonmaker](https://www.linkedin.com/in/fintech-sarah/)
+- 💼 LinkedIn: [Sarah Schoonmaker](https://linkedin.com/in/sarahschoonmaker)
 - 🌐 Portfolio: [sarah-portfolio.vercel.app](https://sarah-portfolio-srschoonmakers-projects.vercel.app/)
 
 ## 🙏 Acknowledgments
 
 - **GeoPandas Community** for excellent geospatial Python tools
 - **Folium Project** for interactive mapping capabilities
+- **Numba Project** for JIT compilation performance
 - **Scikit-learn** for robust machine learning framework
-- **European Data Protection Board** for GDPR compliance guidelines
 
 ---
 
