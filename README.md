@@ -217,9 +217,6 @@ data_config = DataConfig(
 )
 ```
 
-## 🗺️ Dashboard Preview
-
-![GDPR Compliance Dashboard](public/resultsExample.png)
 
 ## 🗺️ Map Results Explanation with Sample Data
 
